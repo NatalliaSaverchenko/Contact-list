@@ -1,40 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { v4 as uuid } from 'uuid'
-import './App.css'
-import AddContact from './components/AddContact/AddContact'
-import ContactList from './components/ContactList/ContactList'
-const LOCAL_STORAGE_KEY = 'contacts'
-const storedContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-function App() {
-  const [contacts, setContacts] = useState(storedContacts || [])
+import RouterView from './Router'
 
-  const addContactHandler = (contact) => {
-    setContacts([...contacts, { id: uuid(), ...contact }])
-  }
-
-  const removeContactHandler = (id) => {
-    const newContactList = contacts.filter((contact) => {
-      return contact.id !== id
-    })
-
-    setContacts(newContactList)
-  }
-
-  useEffect(() => {
-    const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    if (retriveContacts) setContacts(retriveContacts)
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
-  }, [contacts])
-
-  return (
-    <div className="ui container">
-      <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts={contacts} getContactId={removeContactHandler} />
-    </div>
-  )
+const App = () => {
+  return <RouterView />
 }
-
 export default App
