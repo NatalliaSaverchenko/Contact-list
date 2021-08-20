@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AddContact from '../../components/AddContact/AddContact'
 import ContactList from '../../components/ContactList/ContactList'
 import { LOCAL_STORAGE_KEY } from '../../constants/constants'
+
 //const storedContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
 function ListOfContacts() {
   const [contacts, setContacts] = useState([])

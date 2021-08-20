@@ -11,10 +11,8 @@ const ContactCard = ({ contact, clickHandler }) => {
         <div>{contact.email}</div>
       </div>
       <button
-        // to={`/listofcontacts/${contact.id}`}
         className="trash alternate outline icon"
         style={{ color: 'green', marginTop: '7px' }}
-        // onClick={() => clickHandler(contact.id)}
       >
         <Link to={`/contactinfo/${contact.id}`}>view</Link>
       </button>
